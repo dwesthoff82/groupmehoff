@@ -44,10 +44,21 @@ function respond() {
     *
     */
     if (reg_gif.test(text)) {
-      searchQuery = text.match(reg_gif)[1]
-      this.res.writeHead(200)
-      searchGiphy(searchQuery)
-      this.res.end()
+    
+    
+    	if(request.sender_id == '7824617'){
+    	
+    		postMessage("...")
+    	
+    	
+    	}else{
+    
+    
+		  searchQuery = text.match(reg_gif)[1]
+		  this.res.writeHead(200)
+		  searchGiphy(searchQuery)
+		  this.res.end()
+      }
     }
 
 
@@ -75,8 +86,25 @@ function respond() {
       , 'thanks'      : "Whatevs, " + request.name + "."
       , 'allen wade'  : "Unnnnggg makes my dick hard"
       , 'dan kraft'   : "PORK CHOP SANDWICHES"
-      , 'fusco' : 'FSB'
+      , 'fusco' : "FSB"
+      
     }
+    
+   /* if(request.sender_id = '7824617'){
+    	var value = Math.floor((Math.random() * 10) + 1);
+    	
+    	
+    	if(value == 5){
+    	
+    		postMessage("Grove Harder")
+    	
+    	}
+    
+    
+    
+    }*/
+    
+    
     var sendPhrase = false
 	console.log("name "+ request.name+ " ID "+request.sender_id) 
     if (text.toLowerCase().indexOf('hoffbot') !== -1 || text.toLowerCase().indexOf('hoff bot') !== -1  ) {
