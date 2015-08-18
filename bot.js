@@ -1,11 +1,11 @@
 var HTTPS   = require('https')
 var cool    = require('cool-ascii-faces')
 var YouTube = require('youtube-node')
-var Giphy   = require('giphy-wrapper')('dc6zaTOxFJmzC');
+var Giphy   = require('giphy-wrapper')(process.env.GF_ID);
 var botID   = process.env.BOT_ID
 
 YT = new YouTube()
-YT.setKey('AIzaSyAaYWaUf6Brb8nWjbwChxQl5T1rdtr4I_Q')
+YT.setKey(process.env.YT_ID) 
 
 
 /*
@@ -75,10 +75,11 @@ function respond() {
       , 'thanks'      : "Whatevs, " + request.name + "."
       , 'allen wade'  : "Unnnnggg makes my dick hard"
       , 'dan kraft'   : "PORK CHOP SANDWICHES"
+      , 'fusco' : 'FSB'
     }
     var sendPhrase = false
-
-    if (text.toLowerCase().indexOf('wadebot') !== -1 || text.toLowerCase().indexOf('wade bot') !== -1  ) {
+	console.log("name "+ request.name+ " ID "+request.sender_id) 
+    if (text.toLowerCase().indexOf('hoffbot') !== -1 || text.toLowerCase().indexOf('hoff bot') !== -1  ) {
 
       // Do one of the pre-baked phrases apply?
       for (key in phrases) {
@@ -92,13 +93,13 @@ function respond() {
         postMessage('@' + request.name + ' what?!')
       }
     } else {
-      console.log("Don't care")
+      //console.log("Don't care")
       this.res.writeHead(200)
       this.res.end()
     }
 
   } else {
-    console.log("Don't care")
+   // console.log("Don't care")
     this.res.writeHead(200)
     this.res.end()
   }
